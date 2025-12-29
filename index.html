@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurea Ink Designs | Moments, Digitized Eternally.</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lora:ital,wght@0,400;0,500;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS Variables & Global Styles --- */
+        :root {
+            /* Deep vintage blue derived from the ink patterns */
+            --ink-blue: #1a3255;
+            /* Lighter accent blue for hover states */
+            --ink-accent: #3a5a8a;
+            /* Aged paper/cream color for backgrounds to match the vintage vibe */
+            --paper-cream: #f8f5e6;
+            /* Semi-transparent cream for readability over patterns */
+            --paper-overlay: rgba(248, 245, 230, 0.96);
+            
+            --font-calligraphy: 'Pinyon Script', cursive;
+            --font-decorative: 'Cinzel', serif;
+            --font-body: 'Lora', serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-body);
+            color: var(--ink-blue);
+            line-height: 1.8;
+            /* Setting the vintage blue floral pattern as the main background */
+            /* Note: In a real deployment, you would save the image locally. Using a placeholder for now based on input. */
+            background-image: url('image2.png'); 
+            background-repeat:repeat;
+            background-size: 600px;  
+            background-attachment: fixed; /* Creates a premium parallax feel */
+        }
+
+        /* Reusable decorative divider for a vintage feel */
+        .divider {
+            text-align: center;
+            margin: 40px 0;
+            font-size: 1.5rem;
+            color: var(--ink-accent);
+            opacity: 0.7;
+        }
+        .divider::after {
+            content: "♦ ❦ ♦";
+            font-family: var(--font-decorative);
+        }
+
+        /* --- Main Container --- */
+        /* This contains the content and gives it a solid background so text is readable over the floral pattern */
+        .main-container {
+            max-width: 1000px;
+            margin: 60px auto;
+            background-color: var(--paper-overlay);
+            box-shadow: 0 10px 40px rgba(26, 50, 85, 0.15);
+            border: 1px solid rgba(26, 50, 85, 0.1);
+            padding: 0; /* Padding handled by inner sections */
+            overflow: hidden; /* Ensures rounded corners contain children */
+            border-radius: 8px;
+        }
+
+        /* --- Typography Styles --- */
+        h1, h2, h3, h4 {
+            font-weight: normal;
+            text-align: center;
+        }
+
+        .brand-title {
+            font-family: var(--font-calligraphy);
+            font-size: 4.5rem;
+            margin: 0;
+            line-height: 1.2;
+            /* Matching the script style of the provided logo */
+        }
+
+        .brand-tagline {
+            font-family: var(--font-decorative);
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: -10px;
+            margin-bottom: 40px;
+            color: var(--ink-accent);
+        }
+
+        .section-title {
+            font-family: var(--font-decorative);
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        /* Adds an elegant line underneath section titles */
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background-color: var(--ink-blue);
+        }
+
+        /* --- Header & Hero Section --- */
+        header {
+            padding: 80px 20px 60px;
+            text-align: center;
+            /* Using the wreath image as a central brand element */
+            background-position: center 20px;
+            background-repeat: no-repeat;
+            background-size: 150px;
+            padding-top: 180px; /* Spacing for the wreath bg image */
+        }
+
+        .hero-text {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-style: italic;
+        }
+
+        /* --- Content Sections --- */
+        section {
+            padding: 60px 40px;
+        }
+
+        .philosophy-content {
+            font-size: 1.15rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .highlight {
+            font-family: var(--font-calligraphy);
+            font-size: 1.8rem;
+            color: var(--ink-accent);
+        }
+
+        /* --- Services Grid --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Creates responsive two-column layout */
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background-color: #fcfaf4; /* Slightly lighter cream for contrast */
+            border: 1px solid rgba(26, 50, 85, 0.1);
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        /* Elegant hover effect for service cards */
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(26, 50, 85, 0.1);
+            border-color: var(--ink-accent);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--ink-accent);
+        }
+
+        .service-title {
+            font-family: var(--font-decorative);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        /* --- The Process Section (New Idea for elaboration) --- */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 50px;
+            text-align: center;
+        }
+        .step {
+            flex-basis: 22%;
+            min-width: 200px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        /* Adds connecting lines between steps on desktop */
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            right: -20%;
+            width: 40%;
+            height: 1px;
+            background-color: var(--ink-accent);
+            opacity: 0.3;
+        }
+        .step-number {
+            font-family: var(--font-decorative);
+            font-size: 3rem;
+            color: rgba(26, 50, 85, 0.1);
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+        .step-content {
+            position: relative;
+            z-index: 1;
+        }
+        .step h4 {
+            font-family: var(--font-decorative);
+            margin-bottom: 10px;
+        }
+
+        /* --- Investment Section --- */
+        .investment-block {
+            text-align: center;
+            background-color: var(--ink-blue);
+            color: var(--paper-cream);
+            padding: 60px;
+            margin: 40px -40px; /* Negative margin to stretch full width of container */
+            border-top: 3px double var(--paper-cream);
+            border-bottom: 3px double var(--paper-cream);
+        }
+        .investment-block .section-title::after {
+            background-color: var(--paper-cream);
+        }
+        .price-display {
+            font-family: var(--font-decorative);
+            font-size: 6rem;
+            margin: 20px 0;
+            line-height: 1;
+        }
+        .price-sub {
+            font-size: 1.2rem;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        /* --- Contact & Buttons --- */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--ink-blue);
+            color: var(--paper-cream);
+            font-family: var(--font-decorative);
+            padding: 18px 50px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 1px solid var(--ink-blue);
+            transition: all 0.3s ease;
+            margin-top: 30px;
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--ink-blue);
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--ink-blue);
+            font-size: 1.1rem;
+            padding: 15px 25px;
+            border: 1px solid rgba(26, 50, 85, 0.2);
+            transition: all 0.3s;
+        }
+        .contact-item:hover {
+             background-color: var(--ink-blue);
+             color: var(--paper-cream);
+        }
+        .contact-item i {
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.9rem;
+            color: var(--ink-accent);
+            border-top: 1px solid rgba(26, 50, 85, 0.1);
+        }
+
+        /* --- Responsive adjustments for smaller screens --- */
+        @media (max-width: 768px) {
+            .brand-title { font-size: 3.5rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .step:not(:last-child)::after { display: none; }
+            .step { margin-bottom: 50px; }
+            .investment-block { margin: 40px 0; padding: 40px 20px; }
+            section { padding: 40px 20px; }
+            .contact-links { flex-direction: column; gap: 20px; align-items: stretch;}
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <header>
+
+            <img src="logo.png" alt="Aurea Ink Designs Logo" class="brand-logo" style="width: 250px; height: auto; display: block; margin: 0 auto 20px auto; filter: drop-shadow(0px 5px 6px rgba(26, 20, 85, 0.2));">
+    
+            <div class="divider"></div>
+            <h1 class="brand-title">Aurea Ink Designs</h1>
+            <div class="brand-tagline">Moments, Digitized Eternally.</div>
+            <p class="hero-text">
+                Where fleeting sentiments become permanent digital keepsakes. We craft elaborate, vintage-inspired microsites for life's most defining occasions.
+            </p>
+            <div class="divider"></div>
+        </header>
+
+        <section id="philosophy">
+            <h2 class="section-title">Our Philosophy</h2>
+            <div class="philosophy-content">
+                <p>In an era of ephemeral instant messaging, true sentiment often gets lost in the digital noise. A text message fades; a forward is forgotten.</p>
+                <p>At Aurea Ink, we believe some moments deserve permanence. We blend the elegance of traditional stationery with modern technology to create immersive digital experiences. <span class="highlight">We don't just build websites; we code emotions into a lasting legacy.</span></p>
+                <p style="margin-top: 20px; font-size: 0.95rem;">— Crafted with precision by an Engineering Student.</p>
+            </div>
+             <div class="divider"></div>
+        </section>
+
+        <section id="services">
+            <h2 class="section-title">Our Bespoke Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fa-solid fa-champagne-glasses service-icon"></i>
+                    <h3 class="service-title">The Golden Celebration</h3>
+                    <p>For Birthdays & Anniversaries. A joyous digital space featuring animated confetti, a curated "Memory Lane" photo gallery, and their favorite melody playing softly in the background. A truly surprising gift.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-hand-holding-heart service-icon"></i>
+                    <h3 class="service-title">The Olive Branch</h3>
+                    <p>For sincere Apologies. When a text isn't enough. A calm, elegantly designed page featuring a heartfelt, scrolling letter and a space designed for reconciliation and understanding.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-feather-pointed service-icon"></i>
+                    <h3 class="service-title">The Legacy Tribute</h3>
+                    <p>For Milestone Events & Gratitude. Perfect for parents' anniversaries or thanking mentors. A dignified timeline of achievements and curated notes of gratitude from loved ones.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-regular fa-gem service-icon"></i>
+                    <h3 class="service-title">The Custom Commission</h3>
+                    <p>Whatever you ask for, we make it with love. If you have a unique vision for a digital reveal, a proposal, or a special announcement, we will engineer it into reality.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="process" style="background-color: #fcfaf4;">
+            <h2 class="section-title">The Curation Process</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h4>Connect</h4>
+                        <p>Reach out via Email or Instagram with your occasion and vision.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h4>Curate</h4>
+                        <p>Send us your cherished photos, heartfelt message, and musical choice.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h4>Craft</h4>
+                        <p>We engineer your custom, mobile-optimized digital keepsake.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h4>Deliver</h4>
+                        <p>Receive a live preview link, followed by your permanent custom QR code.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="investment">
+            <div class="investment-block">
+                <h2 class="section-title" style="color: var(--paper-cream);">The Investment</h2>
+                <p>Premium digital craftsmanship, made accessible.</p>
+                <div class="price-display">₹99</div>
+                <div class="price-sub">Flat rate per custom digital experience. No hidden fees.</div>
+                 <a href="mailto:aurea.ink.designs@gmail.com?subject=New Aurea Ink Inquiry" class="cta-button" style="border-color: var(--paper-cream); margin-top: 40px;">place an order</a>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">Acquire Your Keepsake</h2>
+            <p style="text-align: center;">We are currently accepting commissions. Please reach out to begin the design process.</p>
+            
+            <div class="contact-links">
+                <a href="mailto:aurea.ink.designs@gmail.com?subject=New Aurea Ink Inquiry" class="contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    aurea.ink.designs@gmail.com
+                </a>
+                <a href="https://instagram.com/aureainkdesigns" target="_blank" class="contact-item">
+                    <i class="fa-brands fa-instagram"></i>
+                    @aureainkdesigns
+                </a>
+            </div>
+
+            <div style="text-align: center; margin-top: 60px;">
+                <div style="display: inline-block; padding: 20px; background: white; border: 1px solid var(--ink-accent); box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
+                    <img src= image.png alt="Scan to Order" style="width: 150px; height: 150px; opacity: 0.8;">
+                    <p style="font-family: var(--font-decorative); margin-top: 15px; font-size: 0.9rem; letter-spacing: 1px;">Scan to Connect directly</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="brand-title" style="font-size: 2.5rem;">Aurea Ink</div>
+            <p>© 2023-2024 Aurea Ink Designs. All rights reserved.</p>
+            <p style="font-style: italic; font-size: 0.8rem;">Moments, Digitized Eternally.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
